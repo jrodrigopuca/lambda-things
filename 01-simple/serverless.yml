@@ -24,6 +24,7 @@ provider:
   name: aws
   runtime: nodejs12.x
   stage: dev
+  profile: usr-deploy-lambda
   region: us-east-1
 
 # you can add statements to the Lambda function's IAM Role here

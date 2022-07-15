@@ -5,7 +5,8 @@
   "main": "handler.js",
   "scripts": {
     "invoke": "sls invoke local -f hi",
-    "deploy": "sls deploy --stage dev --verbose"
+    "deploy": "sls deploy --stage dev --verbose",
+    "remove": "sls remove -s dev -r us-east-1"
   },
   "keywords": [],
   "author": "",

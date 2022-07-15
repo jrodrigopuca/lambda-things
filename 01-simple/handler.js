@@ -5,7 +5,7 @@ module.exports.hi = async (event, context, callback) => {
     statusCode: 200,
     body: JSON.stringify(
       {
-        message: 'Hi! Welcome!'
+        message: 'Hello friend!'
       }
     ),
   };
