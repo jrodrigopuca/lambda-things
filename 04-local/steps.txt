@@ -1,0 +1,24 @@
+zip function.zip index.js
+zip function.zip *
+
+
+"scripts": {
+    "build": "esbuild index.ts --bundle --minify --sourcemap --platform=node --target=es2020 --outfile=dist/index.js --watch"
+}
+
+-------------------------------------
+npm run build
+
+localstack start
+
+awslocal lambda create-function \
+    --function-name local-lambda \
+    --runtime "nodejs16.x" \
+    --role arn:aws:iam::123456789012:role/lambda-rol \
+    --code S3Bucket="hot-reload",S3Key="${PWD}/dist" \
+    --handler index.handler
+
+awslocal lambda invoke \
+    --function-name local-lambda \
+    --cli-binary-format raw-in-base64-out \
+    --payload '{"body":{"name": "Juan"}}' output.json
